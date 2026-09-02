@@ -11,3 +11,15 @@ export function createStatusMessage(repository, state = "ready") {
 
   return `${normalizedRepository} is ready for autonomous changes.`;
 }
+
+export function createDeliveryBadge(mode = "automatic") {
+  if (mode === "automatic") {
+    return { label: "Automated delivery", tone: "success" };
+  }
+
+  if (mode === "manual") {
+    return { label: "Manual delivery", tone: "neutral" };
+  }
+
+  throw new RangeError(`unsupported delivery mode: ${mode}`);
+}
