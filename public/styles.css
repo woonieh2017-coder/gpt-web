@@ -51,3 +51,20 @@ h1 {
   font-size: 1.1rem;
   line-height: 1.6;
 }
+
+.delivery-badge {
+  display: inline-flex;
+  width: fit-content;
+  margin: 1.5rem 0 0;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  background: #064e3b;
+  color: #a7f3d0;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.delivery-badge[data-tone="neutral"] {
+  background: #374151;
+  color: #e5e7eb;
+}
