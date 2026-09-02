@@ -1,0 +1,13 @@
+{
+  "name": "gpt-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "format:check": "node scripts/check-format.mjs",
+    "test:unit": "node --test",
+    "typecheck": "node scripts/check-syntax.mjs",
+    "build": "node scripts/build.mjs",
+    "check": "npm run format:check && npm run test:unit && npm run typecheck && npm run build"
+  }
+}

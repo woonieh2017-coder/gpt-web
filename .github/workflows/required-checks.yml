@@ -1,0 +1,38 @@
+name: Required checks
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  required-checks:
+    name: required-checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Check formatting
+        run: node scripts/check-format.mjs
+
+      - name: Run unit tests
+        run: node --test
+
+      - name: Check JavaScript syntax
+        run: node scripts/check-syntax.mjs
+
+      - name: Build production output
+        run: node scripts/build.mjs
