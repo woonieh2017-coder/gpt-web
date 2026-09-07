@@ -1,24 +1,30 @@
-export function createStatusMessage(repository, state = "ready") {
+import { getUiCopy } from "./i18n.mjs";
+
+export function createStatusMessage(repository, state = "ready", language = "en") {
   const normalizedRepository = repository.trim();
 
   if (!normalizedRepository) {
     throw new TypeError("repository must not be empty");
   }
 
+  const copy = getUiCopy(language);
+
   if (state !== "ready") {
-    return `${normalizedRepository} is currently ${state}.`;
+    return copy.stateStatus(normalizedRepository, state);
   }
 
-  return `${normalizedRepository} is ready for autonomous changes.`;
+  return copy.readyStatus(normalizedRepository);
 }
 
-export function createDeliveryBadge(mode = "automatic") {
+export function createDeliveryBadge(mode = "automatic", language = "en") {
+  const copy = getUiCopy(language);
+
   if (mode === "automatic") {
-    return { label: "Automated delivery", tone: "success" };
+    return { label: copy.automaticDelivery, tone: "success" };
   }
 
   if (mode === "manual") {
-    return { label: "Manual delivery", tone: "neutral" };
+    return { label: copy.manualDelivery, tone: "neutral" };
   }
 
   throw new RangeError(`unsupported delivery mode: ${mode}`);
