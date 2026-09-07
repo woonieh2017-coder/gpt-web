@@ -30,13 +30,43 @@ body {
   box-shadow: 0 2rem 5rem rgb(0 0 0 / 35%);
 }
 
-.eyebrow {
+.card-header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
   margin: 0 0 0.75rem;
+}
+
+.eyebrow {
+  margin: 0;
   color: #93c5fd;
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.language-toggle {
+  flex: 0 0 auto;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid rgb(255 255 255 / 18%);
+  border-radius: 999px;
+  background: rgb(255 255 255 / 8%);
+  color: inherit;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.language-toggle:hover {
+  background: rgb(255 255 255 / 14%);
+}
+
+.language-toggle:focus-visible {
+  outline: 2px solid #93c5fd;
+  outline-offset: 3px;
 }
 
 h1 {
@@ -67,4 +97,11 @@ h1 {
 .delivery-badge[data-tone="neutral"] {
   background: #374151;
   color: #e5e7eb;
+}
+
+@media (width <= 30rem) {
+  .card-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }

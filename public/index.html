@@ -4,13 +4,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="A web workspace maintained by an autonomous coding agent.">
-    <title>GPT Web</title>
+    <title>GPT Web is ready</title>
     <link rel="stylesheet" href="./styles.css">
   </head>
   <body>
     <main class="shell">
       <section class="status-card" aria-labelledby="page-title">
-        <p class="eyebrow">Autonomous delivery workspace</p>
+        <div class="card-header">
+          <p id="eyebrow" class="eyebrow">Autonomous delivery workspace</p>
+          <button
+            id="language-toggle"
+            class="language-toggle"
+            type="button"
+            aria-label="Switch language to Korean"
+          >
+            한국어
+          </button>
+        </div>
         <h1 id="page-title">GPT Web is ready</h1>
         <p id="delivery-badge" class="delivery-badge">Checking delivery mode…</p>
         <p id="status-message" class="status-message">Loading workspace status…</p>
